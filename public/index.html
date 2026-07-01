@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SchoolGrid — Timetabling that solves itself</title>
+<meta name="description" content="SchoolGrid uses constraint-solving to build your school's timetable in hours, not weeks. Join the pilot cohort.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="config.js"></script>
+</head>
+<body>
+
+<main>
+  <section class="hero">
+    <canvas id="lattice"></canvas>
+    <div class="hero-inner">
+      <p class="eyebrow">SchoolGrid — UK pilot cohort now open</p>
+      <h1>The timetable<br>writes itself.</h1>
+      <p class="sub">Constraint-solving that builds a clash-free school timetable in hours, not weeks. We're admitting a small cohort of independent schools to shape the product before wider release.</p>
+      <div class="cta-row">
+        <a href="#join" class="btn-primary">Join the waitlist</a>
+        <span class="cta-note">Takes about 40 seconds</span>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"></div>
+  </section>
+
+  <section class="context">
+    <div class="context-grid">
+      <div class="context-item">
+        <p class="label">01 — The problem</p>
+        <p class="context-text">Most schools still build timetables by hand or in spreadsheets, revisited every time a teacher, room, or subject changes.</p>
+      </div>
+      <div class="context-item">
+        <p class="label">02 — The approach</p>
+        <p class="context-text">SchoolGrid models every constraint — staff, rooms, subjects, availability — and solves for the timetable with no clashes.</p>
+      </div>
+      <div class="context-item">
+        <p class="label">03 — The pilot</p>
+        <p class="context-text">A small, hands-on cohort of UK independent schools, working directly with us on setup and feedback.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="join" id="join">
+    <div class="join-panel">
+      <p class="label">Apply for the pilot</p>
+      <h2>Get on the list</h2>
+      <p class="join-sub">A few details so we can understand who's applying — no lengthy survey.</p>
+
+      <div id="google-btn-wrap"></div>
+      <div class="divider"><span>or continue manually</span></div>
+
+      <form id="waitlist-form" novalidate>
+        <div class="field">
+          <label for="school_name">School name</label>
+          <input type="text" id="school_name" name="school_name" required>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="school_type">School type</label>
+            <select id="school_type" name="school_type" required>
+              <option value="" disabled selected>Select</option>
+              <option value="independent">Independent / private</option>
+              <option value="state">State / public</option>
+              <option value="international">International</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" placeholder="United Kingdom" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary full" id="submit-btn">Join the waitlist</button>
+        <p class="form-note">We'll only use this to contact you about the pilot. No spam.</p>
+      </form>
+
+      <div id="success-message" class="success-message" hidden>
+        <p class="label">You're on the list</p>
+        <p>We'll be in touch as we open up pilot slots.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>SchoolGrid</p>
+  </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

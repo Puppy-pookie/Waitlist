@@ -1,0 +1,12 @@
+{
+  "name": "schoolgrid-waitlist",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "decrypt-entries": "node scripts/decrypt-entries.js"
+  },
+  "dependencies": {
+    "pg": "^8.11.5",
+    "google-auth-library": "^9.11.0"
+  }
+}
