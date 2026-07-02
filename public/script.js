@@ -134,16 +134,72 @@
   }
   window.addEventListener('load', initGoogleButton);
 
+  const schoolNameInput = document.getElementById('school_name');
+  const schoolTypeInput = document.getElementById('school_type');
+  const countryInput = document.getElementById('country');
+  const formError = document.getElementById('form-error');
+
+  function fieldError(id) {
+    return document.querySelector(`[data-error-for="${id}"]`);
+  }
+
+  function showFieldError(input, message) {
+    input.classList.add('invalid');
+    const el = fieldError(input.id);
+    if (el) { el.textContent = message; el.hidden = false; }
+  }
+
+  function clearFieldError(input) {
+    input.classList.remove('invalid');
+    const el = fieldError(input.id);
+    if (el) { el.hidden = true; }
+  }
+
+  // Clear a field's error as soon as the person starts fixing it.
+  [schoolNameInput, emailInput, schoolTypeInput, countryInput].forEach((input) => {
+    const evt = input.tagName === 'SELECT' ? 'change' : 'input';
+    input.addEventListener(evt, () => clearFieldError(input));
+  });
+
+  function validate() {
+    let firstInvalid = null;
+    let valid = true;
+
+    const checks = [
+      [schoolNameInput, schoolNameInput.value.trim().length >= 2, 'Enter your school\u2019s name.'],
+      [emailInput, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim()), 'Enter a valid email address.'],
+      [schoolTypeInput, !!schoolTypeInput.value, 'Select a school type.'],
+      [countryInput, countryInput.value.trim().length >= 2, 'Enter a country.']
+    ];
+
+    for (const [input, isValid, message] of checks) {
+      if (!isValid) {
+        showFieldError(input, message);
+        if (!firstInvalid) firstInvalid = input;
+        valid = false;
+      } else {
+        clearFieldError(input);
+      }
+    }
+
+    if (firstInvalid) firstInvalid.focus();
+    return valid;
+  }
+
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
+    formError.hidden = true;
+
+    if (!validate()) return;
+
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting…';
 
     const payload = {
-      school_name: document.getElementById('school_name').value.trim(),
+      school_name: schoolNameInput.value.trim(),
       email: emailInput.value.trim(),
-      school_type: document.getElementById('school_type').value,
-      country: document.getElementById('country').value.trim(),
+      school_type: schoolTypeInput.value,
+      country: countryInput.value.trim(),
       google_credential: googleCredential || null
     };
 
@@ -153,7 +209,12 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-      if (!res.ok) throw new Error('Request failed');
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Something went wrong. Please try again.');
+      }
+
       form.hidden = true;
       document.getElementById('google-btn-wrap').hidden = true;
       document.querySelector('.divider').hidden = true;
@@ -161,7 +222,8 @@
     } catch (err) {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Join the waitlist';
-      alert("Something went wrong — please try again, or email us directly.");
+      formError.textContent = err.message || 'Something went wrong — please try again, or email us directly.';
+      formError.hidden = false;
     }
   });
 })();
