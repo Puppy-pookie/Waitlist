@@ -3,105 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SchoolGrid — Timetabling that solves itself</title>
-<meta name="description" content="SchoolGrid uses constraint-solving to build your school's timetable in hours, not weeks. Join the pilot cohort.">
+<title>SchoolGrid — Master Your School's Schedule</title>
+<meta name="description" content="SchoolGrid uses constraint-solving to build your school's timetable in hours, not weeks. Join the pilot waitlist.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 <script src="config.js"></script>
 </head>
 <body>
 
+<header class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="material-symbols-outlined brand-icon">school</span>
+      <span class="brand-name">SchoolGrid</span>
+    </div>
+    <nav class="topnav">
+      <a href="#why">Features</a>
+      <a href="#" onclick="return false;">Documentation</a>
+      <a href="#join" class="btn-pill-primary">Join Waitlist</a>
+    </nav>
+  </div>
+</header>
+
 <main>
-  <section class="hero">
-    <canvas id="lattice"></canvas>
+  <section class="hero" id="join">
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-inner">
-      <p class="eyebrow">SchoolGrid — UK pilot cohort now open</p>
-      <h1>The timetable<br>writes itself.</h1>
-      <p class="sub">Constraint-solving that builds a clash-free school timetable in hours, not weeks. We're admitting a small cohort of independent schools to shape the product before wider release.</p>
-      <div class="cta-row">
-        <a href="#join" class="btn-primary">Join the waitlist</a>
-        <span class="cta-note">Takes about 40 seconds</span>
-      </div>
-    </div>
-    <div class="scroll-cue" aria-hidden="true"></div>
-  </section>
+      <p class="badge"><span class="material-symbols-outlined badge-icon">verified_user</span>Academic Modernism Redefined</p>
+      <h1>Master Your School's Schedule</h1>
+      <p class="sub">Simplify complex timetabling with a professional-grade framework designed for institutional reliability and contemporary digital efficiency.</p>
 
-  <section class="context">
-    <div class="context-grid">
-      <div class="context-item">
-        <p class="label">01 — The problem</p>
-        <p class="context-text">Most schools still build timetables by hand or in spreadsheets, revisited every time a teacher, room, or subject changes.</p>
-      </div>
-      <div class="context-item">
-        <p class="label">02 — The approach</p>
-        <p class="context-text">SchoolGrid models every constraint — staff, rooms, subjects, availability — and solves for the timetable with no clashes.</p>
-      </div>
-      <div class="context-item">
-        <p class="label">03 — The pilot</p>
-        <p class="context-text">A small, hands-on cohort of UK independent schools, working directly with us on setup and feedback.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="join" id="join">
-    <div class="join-panel">
-      <p class="label">Apply for the pilot</p>
-      <h2>Get on the list</h2>
-      <p class="join-sub">A few details so we can understand who's applying — no lengthy survey.</p>
-
-      <div id="google-btn-wrap"></div>
-      <div class="divider"><span>or continue manually</span></div>
-
-      <form id="waitlist-form" novalidate>
-        <div class="field">
-          <label for="school_name">School name</label>
-          <input type="text" id="school_name" name="school_name" required>
-          <p class="field-error" data-error-for="school_name" hidden></p>
+      <div class="waitlist-card">
+        <div class="waitlist-card-head">
+          <h2>Join the Waitlist</h2>
+          <p>Secure your spot for early access to the next generation of academic scheduling.</p>
         </div>
 
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-          <p class="field-error" data-error-for="email" hidden></p>
-        </div>
+        <div id="google-btn-wrap"></div>
+        <div class="divider"><span>or join with email</span></div>
 
-        <div class="row">
+        <form id="waitlist-form" novalidate>
           <div class="field">
-            <label for="school_type">School type</label>
-            <select id="school_type" name="school_type" required>
-              <option value="" disabled selected>Select</option>
-              <option value="independent">Independent / private</option>
-              <option value="state">State / public</option>
-              <option value="international">International</option>
-            </select>
-            <p class="field-error" data-error-for="school_type" hidden></p>
+            <label for="school_name">School name</label>
+            <input type="text" id="school_name" name="school_name" placeholder="St. Mary's Academy" required>
+            <p class="field-error" data-error-for="school_name" hidden></p>
           </div>
+
           <div class="field">
-            <label for="country">Country</label>
-            <input type="text" id="country" name="country" placeholder="United Kingdom" required>
-            <p class="field-error" data-error-for="country" hidden></p>
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="dean@school.edu" required>
+            <p class="field-error" data-error-for="email" hidden></p>
           </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="school_type">School type</label>
+              <select id="school_type" name="school_type" required>
+                <option value="" disabled selected>Select</option>
+                <option value="independent">Independent / private</option>
+                <option value="state">State / public</option>
+                <option value="international">International</option>
+              </select>
+              <p class="field-error" data-error-for="school_type" hidden></p>
+            </div>
+            <div class="field">
+              <label for="country">Country</label>
+              <input type="text" id="country" name="country" placeholder="United Kingdom" required>
+              <p class="field-error" data-error-for="country" hidden></p>
+            </div>
+          </div>
+
+          <p class="form-error" id="form-error" hidden></p>
+
+          <button type="submit" class="btn-pill-secondary full" id="submit-btn">
+            Secure Early Access
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+          <p class="form-note">By registering, you agree to our Terms of Service. No spam — just pilot updates.</p>
+        </form>
+
+        <div id="success-message" class="success-message" hidden>
+          <span class="material-symbols-outlined success-icon">check_circle</span>
+          <p class="success-title">You're on the list</p>
+          <p class="success-sub">We'll be in touch as we open up pilot slots.</p>
         </div>
+      </div>
 
-        <p class="form-error" id="form-error" hidden></p>
-        <button type="submit" class="btn-primary full" id="submit-btn">Join the waitlist</button>
-        <p class="form-note">We'll only use this to contact you about the pilot. No spam.</p>
-      </form>
+      <p class="social-proof">Join school administrators already in line for the pilot cohort.</p>
+    </div>
+  </section>
 
-      <div id="success-message" class="success-message" hidden>
-        <p class="label">You're on the list</p>
-        <p>We'll be in touch as we open up pilot slots.</p>
+  <section class="why" id="why">
+    <div class="why-inner">
+      <div class="why-head">
+        <h2>Why SchoolGrid?</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon"><span class="material-symbols-outlined">auto_fix_high</span></div>
+          <h3>Smart Conflict Resolution</h3>
+          <p>Our constraint-solving engine automatically detects and resolves scheduling overlaps, so every teacher and student is exactly where they need to be.</p>
+          <span class="tag tag-warn"><span class="material-symbols-outlined tag-icon">warning</span>Conflict Prevention</span>
+        </div>
+        <div class="card">
+          <div class="card-icon"><span class="material-symbols-outlined">groups</span></div>
+          <h3>Teacher-Centric Planning</h3>
+          <p>Prioritize educator wellbeing with weighted preferences, specialized room requirements, and balanced workload distribution built directly into the solver.</p>
+          <span class="tag tag-neutral"><span class="material-symbols-outlined tag-icon">face</span>Wellbeing Focus</span>
+        </div>
+        <div class="card">
+          <div class="card-icon"><span class="material-symbols-outlined">analytics</span></div>
+          <h3>Data-Driven Insights</h3>
+          <p>Analyze resource utilization with heatmaps and efficiency metrics — turning raw scheduling data into actionable institutional strategy.</p>
+          <span class="tag tag-info"><span class="material-symbols-outlined tag-icon">trending_up</span>Optimization</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>SchoolGrid</p>
-  </footer>
+  <section class="credibility">
+    <div class="credibility-inner">
+      <div class="credibility-text">
+        <h2>Precision Meets Professionalism.</h2>
+        <p>Our interface is stripped of unnecessary decoration so your data stays the primary focus — calm control over even the most chaotic school calendars.</p>
+        <ul>
+          <li>
+            <span class="material-symbols-outlined check">check_circle</span>
+            <div>
+              <h4>Fixed Grid Integrity</h4>
+              <p>Maintains legibility even on the widest monitors.</p>
+            </div>
+          </li>
+          <li>
+            <span class="material-symbols-outlined check">check_circle</span>
+            <div>
+              <h4>Tonal Depth Layers</h4>
+              <p>Subtle elevation hierarchy reduces cognitive load.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="credibility-image">
+        <img src="timetable-preview.png" alt="SchoolGrid weekly timetable dashboard showing color-coded subject slots">
+      </div>
+    </div>
+  </section>
 </main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-row">
+        <span class="material-symbols-outlined">school</span>
+        <span>SchoolGrid</span>
+      </div>
+      <p>© 2026 SchoolGrid. Academic Modernism in Scheduling.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#" onclick="return false;">Privacy Policy</a>
+      <a href="#" onclick="return false;">Terms of Service</a>
+      <a href="#" onclick="return false;">Contact Support</a>
+    </div>
+  </div>
+</footer>
 
 <script src="script.js"></script>
 </body>
