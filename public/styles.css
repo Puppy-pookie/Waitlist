@@ -115,7 +115,7 @@ body {
 .badge-icon { font-size: 15px; }
 
 .hero h1 {
-  font-family: var(--serif);
+  font-family: 'Didot', 'GFS Didot', 'Bodoni MT', var(--serif);
   font-weight: 400;
   font-size: clamp(38px, 6vw, 58px);
   line-height: 1.08;
@@ -353,6 +353,59 @@ input.invalid:focus, select.invalid:focus { box-shadow: 0 0 0 2px rgba(186, 26, 
   box-shadow: 0 8px 30px rgba(15, 23, 42, 0.10);
 }
 .credibility-image img { width: 100%; display: block; }
+
+/* ---------- Sign-up page ---------- */
+.signup-main {
+  position: relative;
+  min-height: calc(100vh - 65px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px;
+  overflow: hidden;
+}
+
+.signup-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(#00668a 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.05;
+}
+
+.signup-wrap {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.trust-bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-lowest);
+  border: 1px solid var(--outline-variant);
+  border-radius: 8px;
+  padding: 12px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--on-background);
+}
+
+.trust-item .material-symbols-outlined {
+  color: var(--secondary);
+  font-size: 18px;
+  font-variation-settings: 'FILL' 1;
+}
 
 /* ---------- Footer ---------- */
 footer {
