@@ -248,6 +248,11 @@ input.invalid:focus, select.invalid:focus { box-shadow: 0 0 0 2px rgba(186, 26, 
 .success-title { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
 .success-sub { font-size: 14px; color: var(--on-surface-variant); }
 
+.hero-cta {
+  display: inline-flex;
+  text-decoration: none;
+}
+
 .social-proof {
   margin-top: 24px;
   font-size: 12px;

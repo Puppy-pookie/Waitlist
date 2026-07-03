@@ -10,8 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script src="https://accounts.google.com/gsi/client" async defer></script>
-<script src="config.js"></script>
 </head>
 <body>
 
@@ -24,7 +22,7 @@
     <nav class="topnav">
       <a href="#why">Features</a>
       <a href="#" onclick="return false;">Documentation</a>
-      <a href="#join" class="btn-pill-primary">Join Waitlist</a>
+      <a href="signup.html" class="btn-pill-primary">Join Waitlist</a>
     </nav>
   </div>
 </header>
@@ -37,62 +35,10 @@
       <h1>Master Your School's Schedule</h1>
       <p class="sub">Simplify complex timetabling with a professional-grade framework designed for institutional reliability and contemporary digital efficiency.</p>
 
-      <div class="waitlist-card">
-        <div class="waitlist-card-head">
-          <h2>Join the Waitlist</h2>
-          <p>Secure your spot for early access to the next generation of academic scheduling.</p>
-        </div>
-
-        <div id="google-btn-wrap"></div>
-        <div class="divider"><span>or join with email</span></div>
-
-        <form id="waitlist-form" novalidate>
-          <div class="field">
-            <label for="school_name">School name</label>
-            <input type="text" id="school_name" name="school_name" placeholder="St. Mary's Academy" required>
-            <p class="field-error" data-error-for="school_name" hidden></p>
-          </div>
-
-          <div class="field">
-            <label for="email">Email address</label>
-            <input type="email" id="email" name="email" placeholder="dean@school.edu" required>
-            <p class="field-error" data-error-for="email" hidden></p>
-          </div>
-
-          <div class="row">
-            <div class="field">
-              <label for="school_type">School type</label>
-              <select id="school_type" name="school_type" required>
-                <option value="" disabled selected>Select</option>
-                <option value="independent">Independent / private</option>
-                <option value="state">State / public</option>
-                <option value="international">International</option>
-              </select>
-              <p class="field-error" data-error-for="school_type" hidden></p>
-            </div>
-            <div class="field">
-              <label for="country">Country</label>
-              <input type="text" id="country" name="country" placeholder="United Kingdom" required>
-              <p class="field-error" data-error-for="country" hidden></p>
-            </div>
-          </div>
-
-          <p class="form-error" id="form-error" hidden></p>
-
-          <button type="submit" class="btn-pill-secondary full" id="submit-btn">
-            Secure Early Access
-            <span class="material-symbols-outlined">arrow_forward</span>
-          </button>
-          <p class="form-note">By registering, you agree to our Terms of Service. No spam — just pilot updates.</p>
-        </form>
-
-        <div id="success-message" class="success-message" hidden>
-          <span class="material-symbols-outlined success-icon">check_circle</span>
-          <p class="success-title">You're on the list</p>
-          <p class="success-sub">We'll be in touch as we open up pilot slots.</p>
-        </div>
-      </div>
-
+      <a href="signup.html" class="btn-pill-secondary hero-cta">
+        Secure Early Access
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
       <p class="social-proof">Join school administrators already in line for the pilot cohort.</p>
     </div>
   </section>
@@ -172,6 +118,5 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>

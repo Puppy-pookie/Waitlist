@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reserve Your Grid — SchoolGrid</title>
+<meta name="description" content="Join 200+ academic institutions optimizing their future with SchoolGrid.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="config.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand" style="text-decoration:none;">
+      <span class="material-symbols-outlined brand-icon">school</span>
+      <span class="brand-name">SchoolGrid</span>
+    </a>
+    <nav class="topnav">
+      <a href="index.html">Back to overview</a>
+    </nav>
+  </div>
+</header>
+
+<main class="signup-main">
+  <div class="signup-bg" aria-hidden="true"></div>
+  <div class="signup-wrap">
+
+    <div class="waitlist-card">
+      <div class="waitlist-card-head" style="text-align:center;">
+        <h2 style="font-size:24px;">Reserve Your Grid</h2>
+        <p>Join school administrators already optimizing their institution's future.</p>
+      </div>
+
+      <div id="google-btn-wrap"></div>
+      <div class="divider"><span>or join with email</span></div>
+
+      <form id="waitlist-form" novalidate>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="dean@school.edu" required>
+          <p class="field-error" data-error-for="email" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="school_name">School name</label>
+          <input type="text" id="school_name" name="school_name" placeholder="St. Mary's Academy" required>
+          <p class="field-error" data-error-for="school_name" hidden></p>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="school_type">School type</label>
+            <select id="school_type" name="school_type" required>
+              <option value="" disabled selected>Select</option>
+              <option value="independent">Independent / private</option>
+              <option value="state">State / public</option>
+              <option value="international">International</option>
+            </select>
+            <p class="field-error" data-error-for="school_type" hidden></p>
+          </div>
+          <div class="field">
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" placeholder="United Kingdom" required>
+            <p class="field-error" data-error-for="country" hidden></p>
+          </div>
+        </div>
+
+        <p class="form-error" id="form-error" hidden></p>
+
+        <button type="submit" class="btn-pill-secondary full" id="submit-btn">Complete Registration</button>
+        <p class="form-note">By registering, you agree to our Terms of Service. Expected wait time for early access is 2–4 weeks.</p>
+      </form>
+
+      <div id="success-message" class="success-message" hidden>
+        <span class="material-symbols-outlined success-icon">check_circle</span>
+        <p class="success-title">You're on the list</p>
+        <p class="success-sub">We'll be in touch as we open up pilot slots.</p>
+      </div>
+    </div>
+
+    <div class="trust-bento">
+      <div class="trust-item">
+        <span class="material-symbols-outlined">verified</span>
+        <span>ISO 27001 Certified</span>
+      </div>
+      <div class="trust-item">
+        <span class="material-symbols-outlined">encrypted</span>
+        <span>Data Encrypted at Rest</span>
+      </div>
+      <div class="trust-item">
+        <span class="material-symbols-outlined">bolt</span>
+        <span>Real-time Sync</span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-row">
+        <span class="material-symbols-outlined">school</span>
+        <span>SchoolGrid</span>
+      </div>
+      <p>© 2026 SchoolGrid. Academic Modernism in Scheduling.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#" onclick="return false;">Privacy Policy</a>
+      <a href="#" onclick="return false;">Terms of Service</a>
+      <a href="#" onclick="return false;">Contact Support</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
