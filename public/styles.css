@@ -22,6 +22,30 @@
   --mono: 'IBM Plex Mono', monospace;
 }
 
+/* ---------- View transitions between pages ---------- */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.32s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.brand { view-transition-name: site-brand; }
+.hero-cta { view-transition-name: waitlist-entry; }
+.waitlist-card { view-transition-name: waitlist-entry; }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0.01ms !important;
+  }
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
